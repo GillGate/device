@@ -1,5 +1,5 @@
-@import 'fonts.css';
-@import 'normalize.css';
+@import 'normalize.less';
+@import 'fonts.less';
 @import 'vars.less';
 
 html {
@@ -169,6 +169,7 @@ p {
 			}
 
 			&:focus {
+				outline: none;
 				border-bottom: 2px solid #000;
 
 				&::placeholder {
@@ -299,7 +300,6 @@ p {
 			margin-right: auto;
 			padding-right: 32px;
 			position: relative;
-			cursor: pointer;
 			
 			&::after {
 				content: "";
@@ -502,9 +502,7 @@ p {
 		}
 	}
 
-	#btn-1:checked + .slider__controls label[for=btn-1],
-	#btn-2:checked + .slider__controls label[for=btn-2],
-	#btn-3:checked + .slider__controls label[for=btn-3] {
+	.slider__controls label.active {
 		border-color: #000;
 	}
 }
@@ -901,6 +899,7 @@ p {
 	.container {
 		position: relative;
 
+		&::before,
 		&::after {
 			content: "";
 			display: block;
@@ -909,6 +908,10 @@ p {
 			background: #f7e184;
 			position: absolute;
 			bottom: 12px;
+		}
+
+		&::after {
+			right: 0;
 		}
 	}
 
